@@ -333,7 +333,75 @@ public class Calculator {
 	
 	
 	public void markKing(int pieceRow, int pieceColumn) {
-		
+		if(board.isWhitesTurn()==board.getSquares()[pieceRow][pieceColumn].isColor()) {
+			int temp=-1;
+			int temp2=-1;
+			if(board.getSquares()[pieceRow][pieceColumn].isColor()) {
+				if(pieceRow+temp>=0&&pieceColumn+temp2>=0&&!board.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()) {
+					board.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
+				}
+				temp=0;				
+				if(pieceRow+temp>=0&&pieceColumn+temp2>=0&&!board.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()) {
+					board.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
+				}	
+				temp=1;				
+				if(pieceRow+temp<=7&&pieceColumn+temp2>=0&&!board.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()) {
+					board.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
+				}	
+				temp2=0;				
+				if(pieceRow+temp<=7&&pieceColumn+temp2>=0&&!board.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()) {
+					board.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
+				}	
+				temp2=1;				
+				if(pieceRow+temp<=7&&pieceColumn+temp2<=7&&!board.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()) {
+					board.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
+				}	
+				temp=0;				
+				if(pieceRow+temp<=7&&pieceColumn+temp2<=7&&!board.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()) {
+					board.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
+				}
+				temp=-1;				
+				if(pieceRow+temp>=0&&pieceColumn+temp2<=7&&!board.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()) {
+					board.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
+				}
+				temp2=0;				
+				if(pieceRow+temp>=0&&pieceColumn+temp2<=7&&!board.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()) {
+					board.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
+				}	
+			}else {
+				if(pieceRow+temp>=0&&pieceColumn+temp2>=0&&(board.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()||board.getSquares()[pieceRow+temp][pieceColumn+temp2].getType()=="null")) {
+					board.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
+				}
+				temp=0;				
+				if(pieceRow+temp>=0&&pieceColumn+temp2>=0&&(board.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()||board.getSquares()[pieceRow+temp][pieceColumn+temp2].getType()=="null"))  {
+					board.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
+				}	
+				temp=1;				
+				if(pieceRow+temp<=7&&pieceColumn+temp2>=0&&(board.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()||board.getSquares()[pieceRow+temp][pieceColumn+temp2].getType()=="null"))  {
+					board.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
+				}	
+				temp2=0;				
+				if(pieceRow+temp<=7&&pieceColumn+temp2>=0&&(board.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()||board.getSquares()[pieceRow+temp][pieceColumn+temp2].getType()=="null"))  {
+					board.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
+				}	
+				temp2=1;				
+				if(pieceRow+temp<=7&&pieceColumn+temp2<=7&&(board.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()||board.getSquares()[pieceRow+temp][pieceColumn+temp2].getType()=="null"))  {
+					board.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
+				}	
+				temp=0;				
+				if(pieceRow+temp<=7&&pieceColumn+temp2<=7&&(board.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()||board.getSquares()[pieceRow+temp][pieceColumn+temp2].getType()=="null"))  {
+					board.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
+				}
+				temp=-1;				
+				if(pieceRow+temp>=0&&pieceColumn+temp2<=7&&(board.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()||board.getSquares()[pieceRow+temp][pieceColumn+temp2].getType()=="null"))  {
+					board.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
+				}
+				temp2=0;				
+				if(pieceRow+temp>=0&&pieceColumn+temp2<=7&&(board.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()||board.getSquares()[pieceRow+temp][pieceColumn+temp2].getType()=="null"))  {
+					board.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
+				}
+			}
+		}
 	}
 
 	
