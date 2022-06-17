@@ -13,15 +13,20 @@ public class Calculator {
 		if(board.getSquares()[pieceRow][pieceColumn].getType()=="Pawn") {
 			markPawn(pieceRow,pieceColumn);
 		}else if(board.getSquares()[pieceRow][pieceColumn].getType()=="Night") {
+			markNight(pieceRow,pieceColumn);
 			
 		}else if(board.getSquares()[pieceRow][pieceColumn].getType()=="Bishop") {
+			markBishop(pieceRow,pieceColumn);
 			
 		}else if(board.getSquares()[pieceRow][pieceColumn].getType()=="Rook") {
+			markRook(pieceRow,pieceColumn);
 			
 		}else if(board.getSquares()[pieceRow][pieceColumn].getType()=="Queen") {
+			markBishop(pieceRow,pieceColumn);
+			markRook(pieceRow,pieceColumn);
 			
 		}else if(board.getSquares()[pieceRow][pieceColumn].getType()=="King") {
-			
+			markKing(pieceRow,pieceColumn);
 		}else{
 			System.out.println("no Piece selected");			
 		}
