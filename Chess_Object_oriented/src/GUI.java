@@ -37,7 +37,7 @@ public class GUI {
 	
 	private int oldRow=-1;
 	private int oldColumn=-1;
-	private boolean nextIsAMove=false;
+	
 	
 	private JRadioButton btnWhite = new JRadioButton("White");
 
@@ -270,15 +270,15 @@ public class GUI {
 	private void clicked(int pieceRow, int pieceColumn) {
 		;
 		try {
-			if(nextIsAMove) {
+			if(board.getSquares()[pieceRow][pieceColumn].isMarked()) {
 				System.out.println("moving piece "+board.getSquares()[oldRow][oldColumn].getType()+" from "+oldRow+oldColumn+" to "+pieceRow+pieceColumn);
 				board.moving(oldRow, oldColumn, pieceRow, pieceColumn);	
-				nextIsAMove=false;
+				
 			}else {
 				board.markMoves(pieceRow, pieceColumn);
 				oldRow= pieceRow;
 				oldColumn =pieceColumn;
-				nextIsAMove =true;
+				
 				System.out.println("marking for piece "+board.getSquares()[pieceRow][pieceColumn].getType()+" at "+oldRow+oldColumn );
 			}
 			syncData();
