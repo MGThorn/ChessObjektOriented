@@ -12,7 +12,7 @@ public class Calculator {
 	public void divideSudoLegalMoves(int pieceRow, int pieceColumn) {
 		if(board.getSquares()[pieceRow][pieceColumn].getType()=="Pawn") {
 			markPawn(pieceRow,pieceColumn);
-		}else if(board.getSquares()[pieceRow][pieceColumn].getType()=="Knight") {
+		}else if(board.getSquares()[pieceRow][pieceColumn].getType()=="Night") {
 			
 		}else if(board.getSquares()[pieceRow][pieceColumn].getType()=="Bishop") {
 			
@@ -62,7 +62,7 @@ public class Calculator {
 		
 	}
 
-	public void markKnight(int pieceRow, int pieceColumn) {
+	public void markNight(int pieceRow, int pieceColumn) {
 		
 	}
 	

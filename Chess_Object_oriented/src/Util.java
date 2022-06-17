@@ -37,7 +37,7 @@ public class Util {
 	                	 ret[row][column]=new Piece("Pawn",true);
 	                     break;
 	                 case 'N':
-	                	 ret[row][column]=new Piece("Knight",true);                 	
+	                	 ret[row][column]=new Piece("Night",true);                 	
 	                     break;
 	                 case 'B':
 	                	 ret[row][column]=new Piece("Bishop",true);
