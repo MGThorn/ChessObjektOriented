@@ -44,14 +44,14 @@ public class GUI {
 
  	
 	private Image pawn = new ImageIcon(this.getClass().getResource("/Pawn.png")).getImage();
-	private Image knight = new ImageIcon(this.getClass().getResource("/Knight.png")).getImage();
+	private Image night = new ImageIcon(this.getClass().getResource("/Knight.png")).getImage();
 	private Image bishop = new ImageIcon(this.getClass().getResource("/Bishop.png")).getImage();
 	private Image rook = new ImageIcon(this.getClass().getResource("/Rook.png")).getImage();
 	private Image queen = new ImageIcon(this.getClass().getResource("/Queen.png")).getImage();
 	private Image king = new ImageIcon(this.getClass().getResource("/King.png")).getImage();
 
 	private Image bPawn = new ImageIcon(this.getClass().getResource("/blackPawn.png")).getImage();
-	private Image bKnight = new ImageIcon(this.getClass().getResource("/blackKnight.png")).getImage();
+	private Image bNight = new ImageIcon(this.getClass().getResource("/blackKnight.png")).getImage();
 	private Image bBishop = new ImageIcon(this.getClass().getResource("/blackBishop.png")).getImage();
 	private Image bRook = new ImageIcon(this.getClass().getResource("/blackRook.png")).getImage();
 	private Image bQueen = new ImageIcon(this.getClass().getResource("/blackQueen.png")).getImage();
@@ -307,9 +307,9 @@ public class GUI {
                     break;
                 case "Night":
                 	if(board.getSquares()[i][j].isColor()) {
-                		labels[i][j].setIcon(new ImageIcon(knight));
+                		labels[i][j].setIcon(new ImageIcon(night));
                 	}else {
-                		labels[i][j].setIcon(new ImageIcon(bKnight));
+                		labels[i][j].setIcon(new ImageIcon(bNight));
                 	}
                 	break;
                 case "Bishop":
