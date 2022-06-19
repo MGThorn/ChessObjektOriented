@@ -301,7 +301,7 @@ public class Calculator {
 					}
 					
 				}
-				//down left
+				//down
 				temp=1;
 				while(pieceRow+temp<=7) {
 					if(board.getSquares()[pieceRow+temp][pieceColumn].getType()=="null") {
@@ -315,7 +315,7 @@ public class Calculator {
 					}
 					
 				}
-				//up right
+				//left
 				temp=-1;
 				while(pieceColumn+temp>=0) {
 					if(board.getSquares()[pieceRow][pieceColumn+temp].getType()=="null") {
@@ -329,7 +329,7 @@ public class Calculator {
 					}
 					
 				}
-				//down right
+				//right
 				temp=1;
 				while(pieceColumn+temp<=7) {
 					if(board.getSquares()[pieceRow][pieceColumn+temp].getType()=="null") {
