@@ -489,6 +489,7 @@ public class Calculator {
 		calculateAllSudoLegalMoves(!board.isWhitesTurn());
 		board.switchMarkVis(false);
 		if()
+			//TODO finish
 		return true;
 	}
 	
