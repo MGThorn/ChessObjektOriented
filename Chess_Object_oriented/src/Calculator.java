@@ -486,6 +486,9 @@ public class Calculator {
 	
 	
 	public boolean checkingMove() {
+		calculateAllSudoLegalMoves(!board.isWhitesTurn());
+		board.switchMarkVis(false);
+		if()
 		return true;
 	}
 	

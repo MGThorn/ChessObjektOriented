@@ -72,6 +72,28 @@ public class Board {
 			whiteTurn=!whiteTurn;
 		}
 	}
+	public void getKingColumn(boolean color) {
+		for(int i=0;i<=7;i++) {
+			for(int j=0;j<=7;j++) {
+				if(squares[i][j].isColor()&&squares[i][j].getType()=="King") {
+					
+				}
+					
+			}
+		}
+	}
+	public int getKingRow(boolean color) {
+		for(int i=0;i<=7;i++) {
+			for(int j=0;j<=7;j++) {
+				if(squares[i][j].isColor()&&squares[i][j].getType()=="King") {
+					return i;
+				}else {
+					return -1;
+				}
+					
+			}
+		}
+	}
 
 	public boolean isWhitesTurn() {
 		return whiteTurn;
