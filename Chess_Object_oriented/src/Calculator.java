@@ -488,8 +488,9 @@ public class Calculator {
 	public boolean checkingMove() {
 		calculateAllSudoLegalMoves(!board.isWhitesTurn());
 		board.switchMarkVis(false);
-		if()
-			//TODO finish
+		if(board.getSquares()[board.getKingRow(board.isWhitesTurn())][board.getKingColumn(board.isWhitesTurn())].isInvisMarked()) {
+			return false;
+		}
 		return true;
 	}
 	
