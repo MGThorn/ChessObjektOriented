@@ -7,7 +7,13 @@ public class Calculator {
 	}
 	
 	public void calculateAllSudoLegalMoves(boolean color) {
-		
+		for(int i=0;i<=7;i++) {
+			for(int j=0;j<=7;j++) {
+				if(color==board.getSquares()[i][j].isColor()) {
+					divideSudoLegalMoves(i,j);
+				}
+			}
+		}
 	}
 	public void divideSudoLegalMoves(int pieceRow, int pieceColumn) {
 		if(board.getSquares()[pieceRow][pieceColumn].getType()=="Pawn") {

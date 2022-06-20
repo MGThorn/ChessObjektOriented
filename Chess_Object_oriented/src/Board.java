@@ -49,6 +49,20 @@ public class Board {
 		}
 	}
 	
+	public void switchMarkVis(boolean visible) {
+		for(int i=0;i<=7;i++) {
+			for(int j=0;j<=7;j++) {
+				if(squares[i][j].isMarked()||squares[i][j].isInvisMarked()) {
+					squares[i][j].setInvisMarked(!visible);
+					squares[i][j].setMarked(visible);
+				}
+					
+			}
+		}
+	}
+	
+
+	
 	public void moving(int oldRow,int oldColumn, int newRow, int newColumn) {
 		if(squares[newRow][newColumn].isMarked()) {
 			squares[newRow][newColumn]= new Piece(squares[oldRow][oldColumn].getType(),squares[oldRow][oldColumn].isColor());
