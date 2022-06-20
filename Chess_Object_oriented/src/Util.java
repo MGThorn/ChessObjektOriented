@@ -82,8 +82,10 @@ public class Util {
 	            	  break;
 	                  
 	              }else if(fen.charAt(i)==' ') {
+	            	 //if(fen.charAt(i+1)=='w'){
+	            	 //}
 	            	  break;
-	            	  
+	            	  //TODO whos 
 	              }else {
 	            	  for (int j = 0; j < ret.length; j++) {
 	                		 for (int l = 0; l < ret.length; l++) {

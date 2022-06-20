@@ -21,6 +21,7 @@ public class Board {
 
 	public void restart(){
 		squares=Util.fenToBoard(standartFen);
+		this.whiteTurn=true;
 	}
 	public void restart(String Fen) {
 		squares=Util.fenToBoard(Fen);
@@ -39,7 +40,12 @@ public class Board {
 	}*/
 	public void markMoves(int row,int column) {
 		demarkAllMoves();
-		calc.divideSudoLegalMoves(row, column);
+		if(calc.checkingMove()) {
+			calc.divideSudoLegalMoves(row, column);			
+		}else {
+			System.out.println("illigal move");
+		}
+		
 	}
 	public void demarkAllMoves() {
 		for(int i=0;i<=7;i++) {

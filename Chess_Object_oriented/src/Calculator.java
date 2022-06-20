@@ -9,7 +9,7 @@ public class Calculator {
 	public void calculateAllSudoLegalMoves(boolean color) {
 		for(int i=0;i<=7;i++) {
 			for(int j=0;j<=7;j++) {
-				if(color==board.getSquares()[i][j].isColor()) {
+				if(color==board.getSquares()[i][j].isColor()&&board.getSquares()[i][j].getType()!="null") {
 					divideSudoLegalMoves(i,j);
 				}
 			}
@@ -34,7 +34,7 @@ public class Calculator {
 		}else if(board.getSquares()[pieceRow][pieceColumn].getType()=="King") {
 			markKing(pieceRow,pieceColumn);
 		}else{
-			System.out.println("no Piece selected");			
+			System.out.println("Calculator Detects: no Piece selected");			
 		}
 	}
 
