@@ -60,6 +60,7 @@ public class Board {
 			for(int j=0;j<=7;j++) {
 				if(squares[i][j].isMarked()||squares[i][j].isInvisMarked()) {
 					squares[i][j].setInvisMarked(!visible);
+					System.out.println(squares[i][j].getType()+" at row "+i+" column "+j+" marked visible"+!visible);
 					squares[i][j].setMarked(visible);
 				}
 					
@@ -81,8 +82,9 @@ public class Board {
 	public int getKingColumn(boolean color) {
 		for(int i=0;i<=7;i++) {
 			for(int j=0;j<=7;j++) {
-				if(squares[i][j].isColor()&&squares[i][j].getType()=="King") {
-					return j;				
+				if(squares[i][j].isColor()==color&&squares[i][j].getType()=="King") {
+					int J =j;
+					return J;				
 				}
 			}
 		}return -1;
@@ -90,8 +92,9 @@ public class Board {
 	public int getKingRow(boolean color) {
 		for(int i=0;i<=7;i++) {
 			for(int j=0;j<=7;j++) {
-				if(squares[i][j].isColor()&&squares[i][j].getType()=="King") {
-					return i;				
+				if(squares[i][j].isColor()==color&&squares[i][j].getType()=="King") {
+					int I =i;
+					return I;				
 				}
 			}
 		}return -1;

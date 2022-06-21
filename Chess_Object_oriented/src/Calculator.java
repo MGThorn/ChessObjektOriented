@@ -489,9 +489,14 @@ public class Calculator {
 		calculateAllSudoLegalMoves(!board.isWhitesTurn());
 		board.switchMarkVis(false);
 		if(board.getSquares()[board.getKingRow(board.isWhitesTurn())][board.getKingColumn(board.isWhitesTurn())].isInvisMarked()) {
+			System.out.println(board.isWhitesTurn()+" King on row "+board.getKingRow(board.isWhitesTurn())+" on Column "+board.getKingColumn(board.isWhitesTurn())+" is in check");
 			return false;
+		}else {
+			System.out.println(board.isWhitesTurn()+" King on row "+board.getKingRow(board.isWhitesTurn())+" on Column "+board.getKingColumn(board.isWhitesTurn())+" is not in check");
+			return true;
+			
 		}
-		return true;
+		
 	}
 	
 
