@@ -8,15 +8,16 @@ public class Calculator {
 	public boolean checkingMove() {
 		calculateAllSudoLegalMoves(!board.isWhitesTurn());
 		board.printMarkedSquares();
-		//output: No piece is marked > why --> mark~~ ONLY MARKS FOR PEAC COLOR == COLOR ON WHOS TURN 
+		
 		board.switchMarkVis(false);
 		System.out.println("");
 		board.printMarkedSquares();
 		if(board.getSquares()[board.getKingRow(board.isWhitesTurn())][board.getKingColumn(board.isWhitesTurn())].isInvisMarked()) {
-			System.out.println(board.isWhitesTurn()+" King on row "+board.getKingRow(board.isWhitesTurn())+" on Column "+board.getKingColumn(board.isWhitesTurn())+" is in check");
+			//bug fixes: System.out.println(board.isWhitesTurn()+" King on row "+board.getKingRow(board.isWhitesTurn())+" on Column "+board.getKingColumn(board.isWhitesTurn())+" is in check");
 			return false;
+			//TODO making right moves still able
 		}else {
-			System.out.println(board.isWhitesTurn()+" King on row "+board.getKingRow(board.isWhitesTurn())+" on Column "+board.getKingColumn(board.isWhitesTurn())+" is not in check");
+			//bug fixes:System.out.println(board.isWhitesTurn()+" King on row "+board.getKingRow(board.isWhitesTurn())+" on Column "+board.getKingColumn(board.isWhitesTurn())+" is not in check");
 			return true;
 			
 		}
