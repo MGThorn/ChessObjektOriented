@@ -40,7 +40,7 @@ public class Board {
 	}*/
 	public void markMoves(int row,int column) {
 		demarkAllMoves();
-		if(calc.checkingMove()) {
+		if(calc.checkingMove()&&whiteTurn==squares[row][column].isColor()) {
 			calc.divideSudoLegalMoves(row, column);			
 		}else {
 			System.out.println("illigal move");
