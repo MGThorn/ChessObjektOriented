@@ -5,14 +5,32 @@ public class Calculator {
 	Calculator(Board board){
 		this.board = board;
 	}
+	public boolean checkingMove() {
+		calculateAllSudoLegalMoves(!board.isWhitesTurn());
+		board.printMarkedSquares();
+		//output: No piece is marked > why --> mark~~ ONLY MARKS FOR PEAC COLOR == COLOR ON WHOS TURN 
+		board.switchMarkVis(false);
+		System.out.println("");
+		board.printMarkedSquares();
+		if(board.getSquares()[board.getKingRow(board.isWhitesTurn())][board.getKingColumn(board.isWhitesTurn())].isInvisMarked()) {
+			System.out.println(board.isWhitesTurn()+" King on row "+board.getKingRow(board.isWhitesTurn())+" on Column "+board.getKingColumn(board.isWhitesTurn())+" is in check");
+			return false;
+		}else {
+			System.out.println(board.isWhitesTurn()+" King on row "+board.getKingRow(board.isWhitesTurn())+" on Column "+board.getKingColumn(board.isWhitesTurn())+" is not in check");
+			return true;
+			
+		}
+		
+	}
+
 	
 	public void calculateAllSudoLegalMoves(boolean color) {
 		for(int i=0;i<=7;i++) {
 			for(int j=0;j<=7;j++) {
 				if(color==board.getSquares()[i][j].isColor()&&board.getSquares()[i][j].getType()!="null") {
 					divideSudoLegalMoves(i,j);
-					System.out.println("calcAllSudoLegalMoves for "+color+" and Piece at "+i+j);
-					//is not the mistake 06 = A7
+					//bug Fixes: System.out.println("calcAllSudoLegalMoves for "+color+" and Piece at "+i+j);
+					
 				}
 			}
 		}
@@ -479,26 +497,6 @@ public class Calculator {
 				board.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
 			}
 		}
-	}
-
-	
-	
-	public boolean checkingMove() {
-		calculateAllSudoLegalMoves(!board.isWhitesTurn());
-		board.printMarkedSquares();
-		//output: No piece is marked > why --> mark~~ ONLY MARKS FOR PEAC COLOR == COLOR ON WHOS TURN 
-		board.switchMarkVis(false);
-		System.out.println("");
-		board.printMarkedSquares();
-		if(board.getSquares()[board.getKingRow(board.isWhitesTurn())][board.getKingColumn(board.isWhitesTurn())].isInvisMarked()) {
-			System.out.println(board.isWhitesTurn()+" King on row "+board.getKingRow(board.isWhitesTurn())+" on Column "+board.getKingColumn(board.isWhitesTurn())+" is in check");
-			return false;
-		}else {
-			System.out.println(board.isWhitesTurn()+" King on row "+board.getKingRow(board.isWhitesTurn())+" on Column "+board.getKingColumn(board.isWhitesTurn())+" is not in check");
-			return true;
-			
-		}
-		
 	}
 	
 
