@@ -490,7 +490,7 @@ public class Calculator {
 	public boolean checkingMove() {
 		calculateAllSudoLegalMoves(!board.isWhitesTurn());
 		board.printMarkedSquares();
-		//output: No piece is marked >why?
+		//output: No piece is marked > why --> mark~~ ONLY MARKS FOR PEAC COLOR == COLOR ON WHOS TURN 
 		board.switchMarkVis(false);
 		System.out.println("");
 		board.printMarkedSquares();
