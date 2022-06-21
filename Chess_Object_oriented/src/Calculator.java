@@ -11,6 +11,8 @@ public class Calculator {
 			for(int j=0;j<=7;j++) {
 				if(color==board.getSquares()[i][j].isColor()&&board.getSquares()[i][j].getType()!="null") {
 					divideSudoLegalMoves(i,j);
+					System.out.println("calcAllSudoLegalMoves for "+color+" and Piece at "+i+j);
+					//is not the mistake 06 = A7
 				}
 			}
 		}
@@ -487,7 +489,11 @@ public class Calculator {
 	
 	public boolean checkingMove() {
 		calculateAllSudoLegalMoves(!board.isWhitesTurn());
+		board.printMarkedSquares();
+		//output: No piece is marked >why?
 		board.switchMarkVis(false);
+		System.out.println("");
+		board.printMarkedSquares();
 		if(board.getSquares()[board.getKingRow(board.isWhitesTurn())][board.getKingColumn(board.isWhitesTurn())].isInvisMarked()) {
 			System.out.println(board.isWhitesTurn()+" King on row "+board.getKingRow(board.isWhitesTurn())+" on Column "+board.getKingColumn(board.isWhitesTurn())+" is in check");
 			return false;

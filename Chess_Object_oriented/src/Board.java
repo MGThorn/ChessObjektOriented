@@ -60,6 +60,7 @@ public class Board {
 			for(int j=0;j<=7;j++) {
 				if(squares[i][j].isMarked()||squares[i][j].isInvisMarked()) {
 					squares[i][j].setInvisMarked(!visible);
+					//is rigth but --> not triggered by checkingMove /alegitly bc no piece is Marked?
 					System.out.println(squares[i][j].getType()+" at row "+i+" column "+j+" marked visible"+!visible);
 					squares[i][j].setMarked(visible);
 				}
@@ -67,7 +68,22 @@ public class Board {
 			}
 		}
 	}
-	
+	public void printMarkedSquares() {
+		for(int i=0;i<=7;i++) {
+			for(int j=0;j<=7;j++) {
+				if(squares[i][j].isMarked()) {
+					System.out.println("Piece "+squares[i][j].getType()+" at "+i+j+" is marked");
+				}else {
+					System.out.println("Piece "+squares[i][j].getType()+" at "+i+j+" is NOT marked");
+				}
+				if(squares[i][j].isInvisMarked()) {
+					System.out.println("Piece "+squares[i][j].getType()+" at "+i+j+" is invis marked");
+				}else {
+					System.out.println("Piece "+squares[i][j].getType()+" at "+i+j+" is NOT invis marked");
+				}
+			}
+		}
+	}
 
 	
 	public void moving(int oldRow,int oldColumn, int newRow, int newColumn) {
