@@ -41,12 +41,12 @@ public class Board {
 	public void markMoves(int row,int column) {
 		demarkAllMoves();
 		if(whiteTurn==squares[row][column].isColor()) {
-			if(calc.checkingMove()) {
+			if(calc.checkingMove(row,column)) {
 				calc.divideSudoLegalMoves(row, column);	
 				demarkAllInvisMoves();
 			}else {
 				System.out.println("illigal move");
-				calc.calculateMovesWhileInCheck(getKingRow(whiteTurn),getKingColumn(whiteTurn));
+				demarkAllMoves();
 			}
 		}else {
 			System.out.println("wrong Color");
