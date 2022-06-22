@@ -40,14 +40,17 @@ public class Board {
 	}*/
 	public void markMoves(int row,int column) {
 		demarkAllMoves();
-		if(calc.checkingMove()&&whiteTurn==squares[row][column].isColor()) {
-			calc.divideSudoLegalMoves(row, column);	
-			demarkAllInvisMoves();
+		if(whiteTurn==squares[row][column].isColor()) {
+			if(calc.checkingMove()) {
+				calc.divideSudoLegalMoves(row, column);	
+				demarkAllInvisMoves();
+			}else {
+				System.out.println("illigal move");
+				calc.calculateMovesWhileInCheck(getKingRow(whiteTurn),getKingColumn(whiteTurn));
+			}
 		}else {
-			System.out.println("illigal move");
-			calc.calculateMovesWhileInCheck(getKingRow(whiteTurn),getKingColumn(whiteTurn));
+			System.out.println("wrong Color");
 		}
-		
 	}
 	public void demarkAllMoves() {
 		for(int i=0;i<=7;i++) {
