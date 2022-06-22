@@ -4,6 +4,20 @@ public class Piece {
 	private String type;
 	private boolean marked;
 	private boolean invisMarked;
+	private String markedBy;
+	private boolean inDoubleCheck;
+	public boolean isInDoubleCheck() {
+		return inDoubleCheck;
+	}
+	public void setInDoubleCheck(boolean inDoubleCheck) {
+		this.inDoubleCheck = inDoubleCheck;
+	}
+	public String getMarkedBy() {
+		return markedBy;
+	}
+	public void setMarkedBy(String markedBy) {
+		this.markedBy = markedBy;
+	}
 	private boolean hasMoved;
 	private boolean canBeInflictedByEnpassant;
 	private int value;
