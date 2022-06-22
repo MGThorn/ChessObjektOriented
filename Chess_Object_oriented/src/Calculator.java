@@ -2,6 +2,7 @@
 public class Calculator {
 	Board board;
 	
+	
 	Calculator(Board board){
 		this.board = board;
 	}
@@ -27,11 +28,18 @@ public class Calculator {
 	public void calculateMovesWhileInCheck(int KingRow,int KingColumn) {
 		board.demarkAllMoves();
 		markKing(KingRow,KingColumn);
-		System.out.println("-------calculateMovesWhileInCheck--------");
+		System.out.println("-------calculateMovesWhileInCheck(for King)--------");
 		board.printMarkedSquares();
 		board.demarkAllsimularMarkedSqares();
 		
 		
+	}
+	public void tryMarkedBy(int Row,int Column, String type) {
+		if(board.getSquares()[Row][Column].isMarked()) {
+			board.getSquares()[Row][Column].setInDoubleCheck(true);
+		}
+		board.getSquares()[Row][Column].setMarkedBy(type);
+		//tryMarkedBy(pieceRow+placeHolder,pieceColumn+placeHolder,board.getSquares()[pieceRow][pieceColumn].getType());
 	}
 
 	
@@ -509,6 +517,7 @@ public class Calculator {
 			}
 		}
 	}
+	
 	
 
 }
