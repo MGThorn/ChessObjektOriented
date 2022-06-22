@@ -6,21 +6,31 @@ public class Calculator {
 		this.board = board;
 	}
 	public boolean checkingMove() {
+		System.out.println("------checkingMove-------");
 		calculateAllSudoLegalMoves(!board.isWhitesTurn());
-		board.printMarkedSquares();
+		//bug fixes: board.printMarkedSquares();
 		
 		board.switchMarkVis(false);
-		System.out.println("");
-		board.printMarkedSquares();
+		
+		//bug fixes: board.printMarkedSquares();
 		if(board.getSquares()[board.getKingRow(board.isWhitesTurn())][board.getKingColumn(board.isWhitesTurn())].isInvisMarked()) {
 			//bug fixes: System.out.println(board.isWhitesTurn()+" King on row "+board.getKingRow(board.isWhitesTurn())+" on Column "+board.getKingColumn(board.isWhitesTurn())+" is in check");
 			return false;
-			//TODO making right moves still able
+			
 		}else {
 			//bug fixes:System.out.println(board.isWhitesTurn()+" King on row "+board.getKingRow(board.isWhitesTurn())+" on Column "+board.getKingColumn(board.isWhitesTurn())+" is not in check");
 			return true;
 			
 		}
+		
+	}
+	public void calculateMovesWhileInCheck(int KingRow,int KingColumn) {
+		board.demarkAllMoves();
+		markKing(KingRow,KingColumn);
+		System.out.println("-------calculateMovesWhileInCheck--------");
+		board.printMarkedSquares();
+		board.demarkAllsimularMarkedSqares();
+		
 		
 	}
 

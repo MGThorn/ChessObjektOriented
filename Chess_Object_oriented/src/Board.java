@@ -41,9 +41,11 @@ public class Board {
 	public void markMoves(int row,int column) {
 		demarkAllMoves();
 		if(calc.checkingMove()&&whiteTurn==squares[row][column].isColor()) {
-			calc.divideSudoLegalMoves(row, column);			
+			calc.divideSudoLegalMoves(row, column);	
+			demarkAllInvisMoves();
 		}else {
 			System.out.println("illigal move");
+			calc.calculateMovesWhileInCheck(getKingRow(whiteTurn),getKingColumn(whiteTurn));
 		}
 		
 	}
@@ -54,14 +56,31 @@ public class Board {
 			}
 		}
 	}
+	public void demarkAllInvisMoves() {
+		for(int i=0;i<=7;i++) {
+			for(int j=0;j<=7;j++) {
+				squares[i][j].setInvisMarked(false);
+			}
+		}
+	}
+	public void demarkAllsimularMarkedSqares() {
+		for(int i=0;i<=7;i++) {
+			for(int j=0;j<=7;j++) {
+				if(squares[i][j].isMarked()==squares[i][j].isInvisMarked()) {
+					squares[i][j].setMarked(false);
+				}
+			}
+		}
+	}
 	
 	public void switchMarkVis(boolean visible) {
+		System.out.println("-----------switchMarkVis-----------------");
 		for(int i=0;i<=7;i++) {
 			for(int j=0;j<=7;j++) {
 				if(squares[i][j].isMarked()||squares[i][j].isInvisMarked()) {
 					squares[i][j].setInvisMarked(!visible);
 					//is rigth but --> not triggered by checkingMove /alegitly bc no piece is Marked?
-					System.out.println(squares[i][j].getType()+" at row "+i+" column "+j+" marked visible"+!visible);
+					//bugFixes: System.out.println(squares[i][j].getType()+" at row "+i+" column "+j+" marked visible"+!visible);
 					squares[i][j].setMarked(visible);
 				}
 					
