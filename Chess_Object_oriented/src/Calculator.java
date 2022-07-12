@@ -97,19 +97,25 @@ public class Calculator {
 	}
 
 	public void markPawn(int pieceRow, int pieceColumn) {
+		//boolean color = b.getSquares()[pieceRow][pieceColumn].isColor();
 		if(b.getSquares()[pieceRow][pieceColumn].isColor()==true) {
     		if(pieceColumn-1>=0&&b.getSquares()[pieceRow][pieceColumn-1].getType()=="null") {
-    			b.getSquares()[pieceRow][pieceColumn-1].setMarked(true);
+    			if (b.getSquares()[pieceRow][pieceColumn - 1].setMarked(true)) {
+    				b.getSquares()[pieceRow][pieceColumn].setAChecker(true);
+				}
     			//normal Pawn Move
     		}if(pieceColumn-2>=0&&b.getSquares()[pieceRow][pieceColumn-2].getType()=="null"&&pieceColumn==6&&b.getSquares()[pieceRow][pieceColumn-1].getType()=="null") {
-    			b.getSquares()[pieceRow][pieceColumn-2].setMarked(true);
-    			//first Pawn Move
+    			if (b.getSquares()[pieceRow][pieceColumn - 2].setMarked(true)) {
+    				b.getSquares()[pieceRow][pieceColumn].setAChecker(true);
+				}//first Pawn Move
     		}if(pieceRow+1<=7&&pieceColumn-1>=0&&b.getSquares()[pieceRow+1][pieceColumn-1].isColor()==false&&b.getSquares()[pieceRow+1][pieceColumn-1].getType()!="null") {
-    			b.getSquares()[pieceRow+1][pieceColumn-1].setMarked(true);
-    			//taking right
+    			if (b.getSquares()[pieceRow+1][pieceColumn - 1].setMarked(true)) {
+    				b.getSquares()[pieceRow][pieceColumn].setAChecker(true);
+				}//taking right
     		}if(pieceRow-1>=0&&pieceColumn-1>=0&&b.getSquares()[pieceRow-1][pieceColumn-1].isColor()==false&&b.getSquares()[pieceRow-1][pieceColumn-1].getType()!="null") {
-    			b.getSquares()[pieceRow-1][pieceColumn-1].setMarked(true);
-    			//taking left
+    			if (b.getSquares()[pieceRow-1][pieceColumn - 1].setMarked(true)) {
+    				b.getSquares()[pieceRow][pieceColumn].setAChecker(true);
+				}//taking left
     		}//TODO enpassant
 		}
 		if(b.getSquares()[pieceRow][pieceColumn].isColor()==false) {
@@ -134,78 +140,45 @@ public class Calculator {
 	public void markNight(int pieceRow, int pieceColumn) {
 		int temp=-1;
 		int temp2=-2;
-		if(b.getSquares()[pieceRow][pieceColumn].isColor()) {
-			if(pieceRow+temp>=0&&pieceColumn+temp2>=0&&!b.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()) {
-				b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
-			}
-			temp=1;				
-			if(pieceRow+temp<=7&&pieceColumn+temp2>=0&&!b.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()) {
-				b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
-			}	
-			temp=2;
-			temp2=-1;
-			if(pieceRow+temp<=7&&pieceColumn+temp2>=0&&!b.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()) {
-				b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
-			}	
-			temp2=1;				
-			if(pieceRow+temp<=7&&pieceColumn+temp2<=7&&!b.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()) {
-				b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
-			}	
-			temp2=2;
-			temp=1;
-			if(pieceRow+temp<=7&&pieceColumn+temp2<=7&&!b.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()) {
-				b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
-			}	
-			temp=-1;				
-			if(pieceRow+temp>=0&&pieceColumn+temp2<=7&&!b.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()) {
-				b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
-			}
-			temp=-2;
-			temp2=1;
-			if(pieceRow+temp>=0&&pieceColumn+temp2<=7&&!b.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()) {
-				b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
-			}
-			temp2=-1;				
-			if(pieceRow+temp>=0&&pieceColumn+temp2>=0&&!b.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()) {
-				b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
-			}	
-		}else {
-			if(pieceRow+temp>=0&&pieceColumn+temp2>=0&&(b.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()||b.getSquares()[pieceRow+temp][pieceColumn+temp2].getType()=="null")) {
-				b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
-			}
-			temp=1;				
-			if(pieceRow+temp<=7&&pieceColumn+temp2>=0&&(b.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()||b.getSquares()[pieceRow+temp][pieceColumn+temp2].getType()=="null")) {
-				b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
-			}	
-			temp=2;
-			temp2=-1;
-			if(pieceRow+temp<=7&&pieceColumn+temp2>=0&&(b.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()||b.getSquares()[pieceRow+temp][pieceColumn+temp2].getType()=="null")) {
-				b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
-			}	
-			temp2=1;				
-			if(pieceRow+temp<=7&&pieceColumn+temp2<=7&&(b.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()||b.getSquares()[pieceRow+temp][pieceColumn+temp2].getType()=="null")) {
-				b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
-			}	
-			temp2=2;
-			temp=1;
-			if(pieceRow+temp<=7&&pieceColumn+temp2<=7&&(b.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()||b.getSquares()[pieceRow+temp][pieceColumn+temp2].getType()=="null")) {
-				b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
-			}	
-			temp=-1;				
-			if(pieceRow+temp>=0&&pieceColumn+temp2<=7&&(b.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()||b.getSquares()[pieceRow+temp][pieceColumn+temp2].getType()=="null")) {
-				b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
-			}
-			temp=-2;
-			temp2=1;
-			if(pieceRow+temp>=0&&pieceColumn+temp2<=7&&(b.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()||b.getSquares()[pieceRow+temp][pieceColumn+temp2].getType()=="null")) {
-				b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
-			}
-			temp2=-1;				
-			if(pieceRow+temp>=0&&pieceColumn+temp2>=0&&(b.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()||b.getSquares()[pieceRow+temp][pieceColumn+temp2].getType()=="null")) {
-				b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
-			}
-			
+		boolean color = b.getSquares()[pieceRow][pieceColumn].isColor();
+		
+
+		if(pieceRow+temp>=0&&pieceColumn+temp2>=0&&(color!=b.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()||b.getSquares()[pieceRow+temp][pieceColumn+temp2].getType()=="null")) {
+			b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
 		}
+		temp=1;				
+		if(pieceRow+temp<=7&&pieceColumn+temp2>=0&&(color!=b.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()||b.getSquares()[pieceRow+temp][pieceColumn+temp2].getType()=="null")) {
+			b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
+		}	
+		temp=2;
+		temp2=-1;
+		if(pieceRow+temp<=7&&pieceColumn+temp2>=0&&(color!=b.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()||b.getSquares()[pieceRow+temp][pieceColumn+temp2].getType()=="null")) {
+			b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
+		}	
+		temp2=1;				
+		if(pieceRow+temp<=7&&pieceColumn+temp2<=7&&(color!=b.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()||b.getSquares()[pieceRow+temp][pieceColumn+temp2].getType()=="null")) {
+			b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
+		}	
+		temp2=2;
+		temp=1;
+		if(pieceRow+temp<=7&&pieceColumn+temp2<=7&&(color!=b.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()||b.getSquares()[pieceRow+temp][pieceColumn+temp2].getType()=="null")) {
+			b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
+		}	
+		temp=-1;				
+		if(pieceRow+temp>=0&&pieceColumn+temp2<=7&&(color!=b.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()||b.getSquares()[pieceRow+temp][pieceColumn+temp2].getType()=="null")) {
+			b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
+		}
+		temp=-2;
+		temp2=1;
+		if(pieceRow+temp>=0&&pieceColumn+temp2<=7&&(color!=b.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()||b.getSquares()[pieceRow+temp][pieceColumn+temp2].getType()=="null")) {
+			b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
+		}
+		temp2=-1;				
+		if(pieceRow+temp>=0&&pieceColumn+temp2>=0&&(color!=b.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()||b.getSquares()[pieceRow+temp][pieceColumn+temp2].getType()=="null")) {
+			b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
+		}	
+			
+		
 	}
 	
 	public void markBishop(int pieceRow, int pieceColumn) {
@@ -540,6 +513,12 @@ public class Calculator {
 		}
 	}
 	
+	public boolean inBounds(int row, int column){
+		if(row>=0&&row<=7&&column>=0&&column<=7) {
+			return true;
+		}
+		return false;
+	}
 	
 
 }

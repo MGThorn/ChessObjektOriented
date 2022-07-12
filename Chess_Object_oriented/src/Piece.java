@@ -6,8 +6,16 @@ public class Piece {
 	private boolean invisMarked;
 	private String markedBy;
 	private boolean inDoubleCheck;
+	private boolean isAChecker;
+	
 	public boolean isInDoubleCheck() {
 		return inDoubleCheck;
+	}
+	public boolean isAChecker() {
+		return isAChecker;
+	}
+	public void setAChecker(boolean isAChecker) {
+		this.isAChecker = isAChecker;
 	}
 	public void setInDoubleCheck(boolean inDoubleCheck) {
 		this.inDoubleCheck = inDoubleCheck;
@@ -49,8 +57,13 @@ public class Piece {
 	public boolean isMarked() {
 		return marked;
 	}
-	public void setMarked(boolean marked) {
+	public boolean setMarked(boolean marked) {
 		this.marked = marked;
+		if(this.type.equals("King")) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 	//Constructor
 	public Piece() {
