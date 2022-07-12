@@ -94,7 +94,9 @@ public class Calculator {
 		//boolean color = b.getSquares()[pieceRow][pieceColumn].isColor();
 		if(b.getSquares()[pieceRow][pieceColumn].isColor()==true) {
     		if(pieceColumn-1>=0&&b.getSquares()[pieceRow][pieceColumn-1].getType()=="null") {
-    			v
+    			if (b.getSquares()[pieceRow][pieceColumn-1].setMarked(true)) {
+    				b.getSquares()[pieceRow][pieceColumn].setAChecker(true);
+    			}
     			//normal Pawn Move
     		}if(pieceColumn-2>=0&&b.getSquares()[pieceRow][pieceColumn-2].getType()=="null"&&pieceColumn==6&&b.getSquares()[pieceRow][pieceColumn-1].getType()=="null") {
     			if (b.getSquares()[pieceRow][pieceColumn - 2].setMarked(true)) {
