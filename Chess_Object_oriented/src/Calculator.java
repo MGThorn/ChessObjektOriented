@@ -24,7 +24,7 @@ public class Calculator {
 			//bug fixes: System.out.println(board.isWhitesTurn()+" King on row "+board.getKingRow(board.isWhitesTurn())+" on Column "+board.getKingColumn(board.isWhitesTurn())+" is in check");
 			return false;
 			
-		}else if(kr==row&&kc==column){
+		}else if(kr==row&&kc==column&&!b.getSquares()[kr][kc].isInDoubleCheck()){
 			inCheck=true;
 			return true;
 		}else {
