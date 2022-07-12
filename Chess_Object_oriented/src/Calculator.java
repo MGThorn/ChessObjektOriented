@@ -94,9 +94,7 @@ public class Calculator {
 		//boolean color = b.getSquares()[pieceRow][pieceColumn].isColor();
 		if(b.getSquares()[pieceRow][pieceColumn].isColor()==true) {
     		if(pieceColumn-1>=0&&b.getSquares()[pieceRow][pieceColumn-1].getType()=="null") {
-    			if (b.getSquares()[pieceRow][pieceColumn - 1].setMarked(true)) {
-    				b.getSquares()[pieceRow][pieceColumn].setAChecker(true);
-				}
+    			v
     			//normal Pawn Move
     		}if(pieceColumn-2>=0&&b.getSquares()[pieceRow][pieceColumn-2].getType()=="null"&&pieceColumn==6&&b.getSquares()[pieceRow][pieceColumn-1].getType()=="null") {
     			if (b.getSquares()[pieceRow][pieceColumn - 2].setMarked(true)) {
@@ -138,38 +136,54 @@ public class Calculator {
 		
 
 		if(pieceRow+temp>=0&&pieceColumn+temp2>=0&&(color!=b.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()||b.getSquares()[pieceRow+temp][pieceColumn+temp2].getType()=="null")) {
-			b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
+			if (b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true)) {
+				b.getSquares()[pieceRow][pieceColumn].setAChecker(true);
+			}
 		}
 		temp=1;				
 		if(pieceRow+temp<=7&&pieceColumn+temp2>=0&&(color!=b.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()||b.getSquares()[pieceRow+temp][pieceColumn+temp2].getType()=="null")) {
-			b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
+			if (b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true)) {
+				b.getSquares()[pieceRow][pieceColumn].setAChecker(true);
+			}
 		}	
 		temp=2;
 		temp2=-1;
 		if(pieceRow+temp<=7&&pieceColumn+temp2>=0&&(color!=b.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()||b.getSquares()[pieceRow+temp][pieceColumn+temp2].getType()=="null")) {
-			b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
+			if (b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true)) {
+				b.getSquares()[pieceRow][pieceColumn].setAChecker(true);
+			}
 		}	
 		temp2=1;				
 		if(pieceRow+temp<=7&&pieceColumn+temp2<=7&&(color!=b.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()||b.getSquares()[pieceRow+temp][pieceColumn+temp2].getType()=="null")) {
-			b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
+			if (b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true)) {
+				b.getSquares()[pieceRow][pieceColumn].setAChecker(true);
+			}
 		}	
 		temp2=2;
 		temp=1;
 		if(pieceRow+temp<=7&&pieceColumn+temp2<=7&&(color!=b.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()||b.getSquares()[pieceRow+temp][pieceColumn+temp2].getType()=="null")) {
-			b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
+			if (b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true)) {
+				b.getSquares()[pieceRow][pieceColumn].setAChecker(true);
+			}
 		}	
 		temp=-1;				
 		if(pieceRow+temp>=0&&pieceColumn+temp2<=7&&(color!=b.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()||b.getSquares()[pieceRow+temp][pieceColumn+temp2].getType()=="null")) {
-			b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
+			if (b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true)) {
+				b.getSquares()[pieceRow][pieceColumn].setAChecker(true);
+			}
 		}
 		temp=-2;
 		temp2=1;
 		if(pieceRow+temp>=0&&pieceColumn+temp2<=7&&(color!=b.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()||b.getSquares()[pieceRow+temp][pieceColumn+temp2].getType()=="null")) {
-			b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
+			if (b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true)) {
+				b.getSquares()[pieceRow][pieceColumn].setAChecker(true);
+			}
 		}
 		temp2=-1;				
 		if(pieceRow+temp>=0&&pieceColumn+temp2>=0&&(color!=b.getSquares()[pieceRow+temp][pieceColumn+temp2].isColor()||b.getSquares()[pieceRow+temp][pieceColumn+temp2].getType()=="null")) {
-			b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true);
+			if (b.getSquares()[pieceRow+temp][pieceColumn+temp2].setMarked(true)) {
+				b.getSquares()[pieceRow][pieceColumn].setAChecker(true);
+			}
 		}	
 			
 		
