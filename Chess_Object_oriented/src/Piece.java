@@ -5,20 +5,14 @@ public class Piece {
 	private boolean marked;
 	private boolean invisMarked;
 	private String markedBy;
-	private boolean inDoubleCheck;
 	private boolean isAChecker;
 	
-	public boolean isInDoubleCheck() {
-		return inDoubleCheck;
-	}
+
 	public boolean isAChecker() {
 		return isAChecker;
 	}
 	public void setAChecker(boolean isAChecker) {
 		this.isAChecker = isAChecker;
-	}
-	public void setInDoubleCheck(boolean inDoubleCheck) {
-		this.inDoubleCheck = inDoubleCheck;
 	}
 	public String getMarkedBy() {
 		return markedBy;

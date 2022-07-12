@@ -19,12 +19,12 @@ public class Calculator {
 		b.switchMarkVis(false);
 		
 		//bug fixes: board.printMarkedSquares();
-		if(b.getSquares()[kr][kc].isInvisMarked()&&!(kr==row&&kc==column)) {
+		if(b.countCheckers()>1) {
 			inCheck=true;
 			//bug fixes: System.out.println(board.isWhitesTurn()+" King on row "+board.getKingRow(board.isWhitesTurn())+" on Column "+board.getKingColumn(board.isWhitesTurn())+" is in check");
 			return false;
 			
-		}else if(kr==row&&kc==column&&!b.getSquares()[kr][kc].isInDoubleCheck()){
+		}else if(kr==row&&kc==column&&b.countCheckers()==1){
 			inCheck=true;
 			return true;
 		}else {
@@ -53,13 +53,7 @@ public class Calculator {
 		
 		
 	}
-	public void tryMarkedBy(int Row,int Column, String type) {
-		if(b.getSquares()[Row][Column].isMarked()) {
-			b.getSquares()[Row][Column].setInDoubleCheck(true);
-		}
-		b.getSquares()[Row][Column].setMarkedBy(type);
-		//tryMarkedBy(pieceRow+placeHolder,pieceColumn+placeHolder,board.getSquares()[pieceRow][pieceColumn].getType());
-	}
+	
 
 	
 	public void calculateAllSudoLegalMoves(boolean color) {

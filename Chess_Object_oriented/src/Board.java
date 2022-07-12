@@ -38,8 +38,35 @@ public class Board {
 	/*public void setSquare(Piece pice,int row, int column) {
 		this.squares;
 	}*/
+	public int countCheckers() {
+		int NumberOfCheckers=0;
+		for(int i=0;i<=7;i++) {
+			for(int j=0;j<=7;j++) {
+				if(squares[i][j].isAChecker()) {
+					NumberOfCheckers++;
+				}
+			}
+		}
+		return NumberOfCheckers;
+	}
+	public int getCheckers() {
+		int ret=0;
+		int factor=1;
+		for(int i=0;i<=7;i++) {
+			for(int j=0;j<=7;j++) {
+				if(squares[i][j].isAChecker()) {
+					ret+=factor*i;
+					factor*=10;
+					ret+=factor*j;
+					factor*=10;
+				}
+			}
+		}
+		return ret;
+	}
 	public void markMoves(int row,int column) {
 		demarkAllMoves();
+		demarkAllCheckers();
 		if(whiteTurn==squares[row][column].isColor()) {
 			if(calc.checkingMove(row,column)) {
 				calc.divideSudoLegalMoves(row, column);	
@@ -52,6 +79,15 @@ public class Board {
 			System.out.println("wrong Color");
 		}
 	}
+	private void demarkAllCheckers() {
+		for(int i=0;i<=7;i++) {
+			for(int j=0;j<=7;j++) {
+				squares[i][j].setAChecker(false);;
+			}
+		}
+
+	}
+
 	public void demarkAllMoves() {
 		for(int i=0;i<=7;i++) {
 			for(int j=0;j<=7;j++) {
